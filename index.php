@@ -1,8 +1,11 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: alexander
- * Date: 10.11.14
- * Time: 12:06
- */
-echo "Hello world!!!";
+
+
+require_once 'vendor/autoload.php';
+use Symfony\Component\HttpFoundation\Request;
+use Almos\AlmosKernel;
+
+$request = Request::createFromGlobals();
+$kernel = new AlmosKernel();
+$response = $kernel->handle($request);
+$response->send();
